@@ -127,14 +127,16 @@ import React from "react";
 
 import styles from "@/styles/Home.module.css";
 import Header from "./header";
+import { Box, Typography } from "@mui/material";
 
 export default function Home() {
   return (
     <div>
       <Header />
-      <main className={styles.main}>
-        <div>a</div>
-      </main>
+
+      <Box>
+        <Typography>一行日記</Typography>
+      </Box>
     </div>
   );
 }

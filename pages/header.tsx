@@ -1,27 +1,23 @@
-import { ThemeProvider } from "@emotion/react";
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import React from "react";
+import { Theme } from "@mui/material/styles";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { FunctionComponent } from "react";
 
-const header = () => {
+interface HeaderProps {
+  theme: Theme;
+}
+
+const Header: FunctionComponent<HeaderProps> = ({ theme }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" color="primary" className="rounded-md">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            中屋敷楓の日記
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
   );
 };
 
-export default header;
+export default Header;
