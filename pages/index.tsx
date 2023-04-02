@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "@/styles/Home.module.css";
 import Header from "./header";
@@ -18,21 +18,19 @@ const theme = createTheme({
     },
   },
 });
-const demoData = [
-  {
-    content: "３月３１日　課題をやった",
-  },
-  {
-    content: "４月１日ご飯を作った",
-  },
-  {
-    content: "４月２日　洗濯物を取り込んだ",
-  },
-];
 
 export default function Home() {
-  const [inputdiary, setInputdiary] = useState("");
-  const [diarys, setDiarys] = useState(demoData);
+  const data =
+    typeof localStorage !== "undefined" && localStorage.getItem("diarys")
+      ? JSON.parse(localStorage.getItem("diarys") as string)
+      : [];
+  const [inputdiary, setInputdiary] = useState<string>("");
+  const [diarys, setDiarys] = useState<diaryType[]>(data);
+
+  useEffect(() => {
+    const json = JSON.stringify(diarys);
+    localStorage.setItem("diarys", json);
+  }, [diarys]);
   const handleAddTodo = () => {
     if (inputdiary === "") {
       alert("空文字列は追加できません!!");
@@ -53,7 +51,7 @@ export default function Home() {
 
         <Box sx={{ textAlign: "center" }}>
           <Typography variant="h4" className="text-slate-100 mt-4">
-            一行日記
+            日々のメモ
           </Typography>
         </Box>
 

@@ -15,7 +15,12 @@ type Props = {
   setDiarys: (x: diaryType[]) => void;
 };
 
-const Diarymemo = ({ content }: Props) => {
+const Diarymemo = ({ content, index, diarys, setDiarys }: Props) => {
+  const handleTodoDelete = () => {
+    const newdiarys = [...diarys];
+    newdiarys.splice(index, 1);
+    setDiarys(newdiarys);
+  };
   return (
     <Card sx={{ minWidth: 275 }} className="mt-4">
       <CardContent>
@@ -24,7 +29,7 @@ const Diarymemo = ({ content }: Props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">
+        <Button size="small" onClick={handleTodoDelete}>
           <DeleteIcon />
         </Button>
       </CardActions>
