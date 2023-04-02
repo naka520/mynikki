@@ -4,8 +4,9 @@ import styles from "@/styles/Home.module.css";
 import Header from "./header";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
-import { Box, Button, Typography, TextField } from "@mui/material";
+import { Box, Button, Typography, TextField, Stack } from "@mui/material";
 import Diarymemo from "./diarymemo";
+import PostAddIcon from "@mui/icons-material/PostAdd";
 
 export type diaryType = {
   content: string;
@@ -64,9 +65,13 @@ export default function Home() {
           }}
           className="bg-white"
         />
-        <Button onClick={handleAddTodo}>追加</Button>
+        <Button onClick={handleAddTodo}>
+          <PostAddIcon />
+        </Button>
+
         <ul style={{ listStyle: "none" }}>
           {diarys.map((item, index) => {
+            console.log(index);
             return (
               <li key={index}>
                 <Diarymemo

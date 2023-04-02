@@ -6,6 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 type Props = {
   content: string;
@@ -23,7 +24,9 @@ const Diarymemo = ({ content }: Props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">完了</Button>
+        <Button size="small">
+          <DeleteIcon />
+        </Button>
       </CardActions>
     </Card>
   );
