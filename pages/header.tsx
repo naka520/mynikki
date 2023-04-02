@@ -11,7 +11,12 @@ const Header: FunctionComponent<HeaderProps> = ({ theme }) => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary" className="rounded-md">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1 }}
+            className="text-white"
+          >
             中屋敷楓の日記
           </Typography>
         </Toolbar>

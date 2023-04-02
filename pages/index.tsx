@@ -134,19 +134,21 @@ import { Box, Typography } from "@mui/material";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#316745",
+      main: "rgba(13, 71, 161, 0.5)",
     },
   },
 });
 
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
-      <Header theme={theme} />
+    <div className={styles.container}>
+      <ThemeProvider theme={theme}>
+        <Header theme={theme} />
 
-      <Box>
-        <Typography>一行日記</Typography>
-      </Box>
-    </ThemeProvider>
+        <Box>
+          <Typography>一行日記</Typography>
+        </Box>
+      </ThemeProvider>
+    </div>
   );
 }
