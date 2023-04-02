@@ -127,16 +127,26 @@ import React from "react";
 
 import styles from "@/styles/Home.module.css";
 import Header from "./header";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#316745",
+    },
+  },
+});
 
 export default function Home() {
   return (
-    <div>
-      <Header />
+    <ThemeProvider theme={theme}>
+      <Header theme={theme} />
 
       <Box>
         <Typography>一行日記</Typography>
       </Box>
-    </div>
+    </ThemeProvider>
   );
 }
